@@ -16,7 +16,6 @@ void* increment(void* arg) {
     return NULL;
 }
 
-/*s
 double z_czas(int liczba_watkow) {
     pthread_t watki[liczba_watkow];
     struct timespec start, end;
@@ -35,14 +34,13 @@ double z_czas(int liczba_watkow) {
     
     return (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
 }
-*/
 
 int main() {
     printf("Test przepustowosci...\n");
     printf("Liczba wątków, Czas wykonania [s]: \n");
     
     // Testujemy przepustowość dla 1, 2, 4 i 8 wątków
-    for(int w = 1; w <= 8; w++) {
+    for(int w = 1; w <= 32; w++) {
         printf("%d, %f\n", w, z_czas(w));
     }
     
