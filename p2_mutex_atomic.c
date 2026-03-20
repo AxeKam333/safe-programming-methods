@@ -64,7 +64,7 @@ int main() {
     printf("Test przepustowosci...\n");
     printf("Liczba procesów, Czas wykonania [s]: \n");
     
-    // Testujemy przepustowość dla 1 do 8 wątków
+    // Testujemy przepustowość dla 1 do 32 wątków
     for(int w = 1; w <= 32; w++) {
         printf("%d, %f\n", w, z_czas(w));
     }

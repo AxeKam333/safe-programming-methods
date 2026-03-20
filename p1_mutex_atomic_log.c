@@ -40,9 +40,10 @@ int main() {
     printf("Liczba wątków, Czas wykonania [s]: \n");
 
     for(int j = 1; j <= 6; j++) {
-        for(int w = 1; w <= 16; w++) {
+        for(int w = 1; w <= 96; w=w*2) {
             printf("%d, %f\n", w, z_czas(w));
         }
+        printf("%d, %f\n", 96, z_czas(96));
     }
     
     return 0;

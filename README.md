@@ -8,3 +8,7 @@ srun -p pmem -c32 --pty ./a.out
 
 ## batch job
 sbatch batch.sh
+
+wyłączyć optymalizacje
+na pmem do 96 wątkach
+goldbolt.org - jak kod został skompilowany
