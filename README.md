@@ -1,5 +1,11 @@
 # safe-programming-methods
 
+## Run
+
+gcc -Wall -g -O0 -pthread p2_mutex_atomic.c
+
+./a.out
+
 ## sesja interaktywna
 srun -A inf155840 -p pmem --pty /bin/bash -l
 (i potem na klastrze gcc -Wall ...)

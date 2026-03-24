@@ -69,5 +69,11 @@ int main() {
         }
     }
 
+    for(int w = 1; w <= 32; w++) {
+        for(int j = 1; j <= TEST_SIZE; j++) {
+            printf("%d, %f\n", w, z_czas(w));
+        }
+    }
+
     return 0;
 }
