@@ -3,72 +3,71 @@
 #include <time.h>
 #include <stdatomic.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h> 
-#include <sys/mman.h>
 
-#define ITER 10000000
+#define TEST_SIZE 6
+#define ITER 100000000
 
-static atomic_int * ctr;
-pthread_mutex_t L = PTHREAD_MUTEX_INITIALIZER;
+static pthread_barrier_t barrier;
+volatile atomic_int ctr;
+// pthread_mutex_t L = PTHREAD_MUTEX_INITIALIZER;
 
-void* increment() {
-    for(int i = 0; i < ITER; i++) {
-        (*ctr)++;
+void* increment(void* arg) {
+    long int * liczba_watkow = (long int *)arg;
+    pthread_barrier_wait(&barrier);
+
+    for(long int i = 0; i < ITER/(*liczba_watkow); i++) {
+        ctr++;
     }
     return NULL;
 }
 
-double z_czas(int liczba_watkow) {
-
-    int myPid;
+double z_czas(long int liczba_watkow) {
+    pthread_t watki[96];
     struct timespec start, end;
     
-    // Alokacja pamięci współdzielonej 
-    ctr = mmap(NULL, sizeof(int), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+    // Reset licznika przed każdym testem
+    ctr = 0; 
+    
+    int binit = pthread_barrier_init(&barrier, NULL, liczba_watkow + 1);
+    if (binit != 0)
+        perror("pthread_barrier_init");
 
-    if (ctr == MAP_FAILED) {
-        perror("mmap failed");
-        return 1;
+    for(long int i = 0; i < liczba_watkow; i++) {
+        pthread_create(&watki[i], NULL, increment, &liczba_watkow);
     }
 
-    *ctr = 0; 
-    
+    pthread_barrier_wait(&barrier);
     clock_gettime(CLOCK_MONOTONIC, &start);
 
-    for (int i = 0; i<liczba_watkow-1; i++){
-        myPid = fork();
-    // printf("My PID: %d\n", myPid);
-        if (myPid == 0) {
-            break;
-        }
+    for(long int i = 0; i < liczba_watkow; i++) {
+        pthread_join(watki[i], NULL);
     }
-
-    increment();
-
-    // sprawdzenie czy wynik sumowania jest poprawny
-    // printf("%d\n",*ctr);
-
-    if(myPid == 0){
-        exit(0);
-    }
-    while ((myPid = wait(NULL)) > 0);
-
     clock_gettime(CLOCK_MONOTONIC, &end);
-    munmap(ctr,sizeof(int));
+
+    pthread_barrier_destroy(&barrier);
     
-    return (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
+    double time = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / (1e9);
+    return (ITER)/time;
 }
 
 int main() {
+    int krok_test[] = {1, 2, 4, 8, 16, 24, 32, 48, 64, 80, 96};
+    int l_krokow = sizeof(krok_test) / sizeof(krok_test[0]);
     printf("Test przepustowosci...\n");
-    printf("Liczba procesów, Czas wykonania [s]: \n");
+    printf("Liczba wątków, Przepustowość [Mops/s]: \n");
     
-    // Testujemy przepustowość dla 1 do 32 wątków
-    for(int w = 1; w <= 32; w++) {
-        printf("%d, %f\n", w, z_czas(w));
+    // rozgrzewka
+    for(int i = 0; i < l_krokow; i++) {
+        int w = krok_test[i];
+        z_czas(w);
     }
 
-        // printf("Czas: %d, %f\n", 1, z_czas(8));
+    for(int i = 0; i < l_krokow; i++) {
+        for(int j = 1; j <= TEST_SIZE; j++) {
+            int w = krok_test[i];
+            printf("%d, %f\n", w, z_czas(w));
+        }
+    }
+
     return 0;
 }
