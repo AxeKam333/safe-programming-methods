@@ -41,8 +41,13 @@ int main() {
     printf("Test przepustowosci...\n");
     printf("Liczba wątków, Czas wykonania [s]: \n");
 
-    for(int j = 1; j <= 2; j++) {
-        for(int i = 0; i < l_krokow; i++) {
+    for(int i = 0; i < l_krokow; i++) {
+        int w = krok_test[i];
+            z_czas(w);
+    }
+
+    for(int i = 0; i < l_krokow; i++) {
+        for(int j = 1; j <= 6; j++) {
             int w = krok_test[i];
             printf("%d, %f\n", w, z_czas(w));
         }
