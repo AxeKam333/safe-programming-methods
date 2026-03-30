@@ -1,0 +1,14 @@
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\bin\Release\net8.0\MBP_DCL_1.exe
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\bin\Release\net8.0\MBP_DCL_1.deps.json
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\bin\Release\net8.0\MBP_DCL_1.runtimeconfig.json
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\bin\Release\net8.0\MBP_DCL_1.dll
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\bin\Release\net8.0\MBP_DCL_1.pdb
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\obj\Release\net8.0\MBP_DCL_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\obj\Release\net8.0\MBP_DCL_1.AssemblyInfoInputs.cache
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\obj\Release\net8.0\MBP_DCL_1.AssemblyInfo.cs
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\obj\Release\net8.0\MBP_DCL_1.csproj.CoreCompileInputs.cache
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\obj\Release\net8.0\MBP_DCL_1.dll
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\obj\Release\net8.0\refint\MBP_DCL_1.dll
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\obj\Release\net8.0\MBP_DCL_1.pdb
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\obj\Release\net8.0\MBP_DCL_1.genruntimeconfig.cache
+C:\Users\matil\Desktop\mbp_projekt\MBP_DCL_1\MBP_DCL_1\obj\Release\net8.0\ref\MBP_DCL_1.dll
