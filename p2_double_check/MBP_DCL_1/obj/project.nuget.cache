@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KjwXltDC+J0=",
+  "dgSpecHash": "W4cG1FBDpOk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\matil\\Desktop\\mbp_projekt\\MBP_DCL_1\\MBP_DCL_1\\MBP_DCL_1.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/admin/safe-programming-methods/p2_double_check/MBP_DCL_1/MBP_DCL_1.csproj",
+  "expectedPackageFiles": [
+    "/home/admin/.nuget/packages/microsoft.net.illink.tasks/8.0.25/microsoft.net.illink.tasks.8.0.25.nupkg.sha512",
+    "/home/admin/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.25/microsoft.netcore.app.runtime.linux-x64.8.0.25.nupkg.sha512",
+    "/home/admin/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.25/microsoft.aspnetcore.app.runtime.linux-x64.8.0.25.nupkg.sha512"
+  ],
   "logs": []
 }

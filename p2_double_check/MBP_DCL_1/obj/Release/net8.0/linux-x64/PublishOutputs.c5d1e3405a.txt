@@ -1,0 +1,2 @@
+/home/admin/safe-programming-methods/p2_double_check/MBP_DCL_1/bin/Release/net8.0/linux-x64/publish/MBP_DCL_1.pdb
+/home/admin/safe-programming-methods/p2_double_check/MBP_DCL_1/bin/Release/net8.0/linux-x64/publish/MBP_DCL_1
