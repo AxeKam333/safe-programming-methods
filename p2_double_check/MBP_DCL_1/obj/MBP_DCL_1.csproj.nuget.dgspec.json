@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/admin/safe-programming-methods/p2_double_check/MBP_DCL_1/MBP_DCL_1.csproj": {}
+    "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\sieci\\safe-programming-methods\\p2_double_check\\MBP_DCL_1\\MBP_DCL_1.csproj": {}
   },
   "projects": {
-    "/home/admin/safe-programming-methods/p2_double_check/MBP_DCL_1/MBP_DCL_1.csproj": {
+    "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\sieci\\safe-programming-methods\\p2_double_check\\MBP_DCL_1\\MBP_DCL_1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/admin/safe-programming-methods/p2_double_check/MBP_DCL_1/MBP_DCL_1.csproj",
+        "projectUniqueName": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\sieci\\safe-programming-methods\\p2_double_check\\MBP_DCL_1\\MBP_DCL_1.csproj",
         "projectName": "MBP_DCL_1",
-        "projectPath": "/home/admin/safe-programming-methods/p2_double_check/MBP_DCL_1/MBP_DCL_1.csproj",
-        "packagesPath": "/home/admin/.nuget/packages/",
-        "outputPath": "/home/admin/safe-programming-methods/p2_double_check/MBP_DCL_1/obj/",
+        "projectPath": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\sieci\\safe-programming-methods\\p2_double_check\\MBP_DCL_1\\MBP_DCL_1.csproj",
+        "packagesPath": "C:\\Users\\olekk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\sieci\\safe-programming-methods\\p2_double_check\\MBP_DCL_1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/admin/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\olekk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,19 +43,12 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.25, )",
-              "autoReferenced": true
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -61,6 +60,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+<<<<<<< HEAD
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.linux-arm64",
@@ -75,17 +75,23 @@
               "version": "[8.0.25, 8.0.25]"
             }
           ],
+=======
+>>>>>>> d5eb2821d8302ef0ecb789f5158647a73cc61cdc
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.419/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
         "linux-arm64": {
           "#import": []
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+>>>>>>> d5eb2821d8302ef0ecb789f5158647a73cc61cdc
         }
       }
     }
