@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mbp_doublecheck_v_1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b000461f1df0503927fc432b298ad8597b02013")]
 [assembly: System.Reflection.AssemblyProductAttribute("mbp_doublecheck_v_1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mbp_doublecheck_v_1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

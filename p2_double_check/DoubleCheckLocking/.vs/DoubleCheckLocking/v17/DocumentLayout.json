@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\DoubleCheckLocking\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{63566504-EB9C-4D90-A89A-4DFB0348AA17}|DoubleCheckLocking\\DoubleCheckLocking.csproj|c:\\users\\olekk\\desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\doublechecklocking\\doublechecklocking\\dlctester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63566504-EB9C-4D90-A89A-4DFB0348AA17}|DoubleCheckLocking\\DoubleCheckLocking.csproj|solutionrelative:doublechecklocking\\dlctester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63566504-EB9C-4D90-A89A-4DFB0348AA17}|DoubleCheckLocking\\DoubleCheckLocking.csproj|c:\\users\\olekk\\desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\doublechecklocking\\doublechecklocking\\uninitializedmany.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63566504-EB9C-4D90-A89A-4DFB0348AA17}|DoubleCheckLocking\\DoubleCheckLocking.csproj|solutionrelative:doublechecklocking\\uninitializedmany.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63566504-EB9C-4D90-A89A-4DFB0348AA17}|DoubleCheckLocking\\DoubleCheckLocking.csproj|c:\\users\\olekk\\desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\doublechecklocking\\doublechecklocking\\uninitializedexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63566504-EB9C-4D90-A89A-4DFB0348AA17}|DoubleCheckLocking\\DoubleCheckLocking.csproj|solutionrelative:doublechecklocking\\uninitializedexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UninitializedExample.cs",
+              "DocumentMoniker": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\DoubleCheckLocking\\DoubleCheckLocking\\UninitializedExample.cs",
+              "RelativeDocumentMoniker": "DoubleCheckLocking\\UninitializedExample.cs",
+              "ToolTip": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\DoubleCheckLocking\\DoubleCheckLocking\\UninitializedExample.cs",
+              "RelativeToolTip": "DoubleCheckLocking\\UninitializedExample.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T10:10:45.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DLCTester.cs",
+              "DocumentMoniker": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\DoubleCheckLocking\\DoubleCheckLocking\\DLCTester.cs",
+              "RelativeDocumentMoniker": "DoubleCheckLocking\\DLCTester.cs",
+              "ToolTip": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\DoubleCheckLocking\\DoubleCheckLocking\\DLCTester.cs",
+              "RelativeToolTip": "DoubleCheckLocking\\DLCTester.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T09:43:00.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UninitializedMany.cs",
+              "DocumentMoniker": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\DoubleCheckLocking\\DoubleCheckLocking\\UninitializedMany.cs",
+              "RelativeDocumentMoniker": "DoubleCheckLocking\\UninitializedMany.cs",
+              "ToolTip": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\DoubleCheckLocking\\DoubleCheckLocking\\UninitializedMany.cs",
+              "RelativeToolTip": "DoubleCheckLocking\\UninitializedMany.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T09:40:47.176Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\bin\Debug\net8.0\DoubleCheckLocking.exe
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\bin\Debug\net8.0\DoubleCheckLocking.deps.json
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\bin\Debug\net8.0\DoubleCheckLocking.runtimeconfig.json
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\bin\Debug\net8.0\DoubleCheckLocking.dll
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\bin\Debug\net8.0\DoubleCheckLocking.pdb
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\DoubleCheckLocking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\DoubleCheckLocking.AssemblyInfoInputs.cache
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\DoubleCheckLocking.AssemblyInfo.cs
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\DoubleCheckLocking.csproj.CoreCompileInputs.cache
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\DoubleCheckLocking.sourcelink.json
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\DoubleCheckLocking.dll
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\refint\DoubleCheckLocking.dll
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\DoubleCheckLocking.pdb
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\DoubleCheckLocking.genruntimeconfig.cache
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\obj\Debug\net8.0\ref\DoubleCheckLocking.dll

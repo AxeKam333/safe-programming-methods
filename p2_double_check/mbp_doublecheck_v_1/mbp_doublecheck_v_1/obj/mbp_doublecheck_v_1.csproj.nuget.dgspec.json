@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\matil\\Desktop\\mbp\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1.csproj": {}
+    "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\matil\\Desktop\\mbp\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1.csproj": {
+    "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matil\\Desktop\\mbp\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1.csproj",
+        "projectUniqueName": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1.csproj",
         "projectName": "mbp_doublecheck_v_1",
-        "projectPath": "C:\\Users\\matil\\Desktop\\mbp\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1.csproj",
-        "packagesPath": "C:\\Users\\matil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matil\\Desktop\\mbp\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\obj\\",
+        "projectPath": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1.csproj",
+        "packagesPath": "C:\\Users\\olekk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\mbp_doublecheck_v_1\\mbp_doublecheck_v_1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\matil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\olekk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
