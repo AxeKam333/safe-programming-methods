@@ -1,0 +1,2 @@
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\bin\Release\net8.0\linux-x64\publish\DoubleCheckLocking.pdb
+C:\Users\olekk\Desktop\programming_studies\i-sem-mgr\safe-programming-methods\p2_double_check\DoubleCheckLocking\DoubleCheckLocking\bin\Release\net8.0\linux-x64\publish\DoubleCheckLocking

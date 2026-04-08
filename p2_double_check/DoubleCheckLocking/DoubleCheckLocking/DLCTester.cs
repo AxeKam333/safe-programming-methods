@@ -124,7 +124,6 @@ public class DCLTester
 
                     for (int j = 0; j < threadsCount; j++)
                     {
-                        // Przekazanie delegatu z tablicy bezpośrednio do wątku
                         threads[j] = new Thread(testMethods[m]);
                         threads[j].Start();
                     }
