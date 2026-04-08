@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mbp_doublecheck_v_3_volatile")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+643a664d832b8265a0f5ae139a61754d8679bcb1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d942e8dc1bab6e8064995059bb7198d0174cc4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("mbp_doublecheck_v_3_volatile")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mbp_doublecheck_v_3_volatile")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

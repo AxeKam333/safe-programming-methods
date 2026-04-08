@@ -18,7 +18,7 @@ namespace DclTest
     }
 
     //1: Błędny DCL
-    public class Singleton1_Bledny
+    public class DCL1_Bledny
     {
         private static Data _instance;
         private static readonly object _lock = new object();
@@ -41,7 +41,7 @@ namespace DclTest
     }
 
     //2: Bez pierwszego IF'a
-    public class Singleton2_Powolny
+    public class DCL2_Powolny
     {
         private static Data _instance;
         private static readonly object _lock = new object();
@@ -61,7 +61,7 @@ namespace DclTest
     }
 
     //3: Z volatile
-    public class Singleton3_Poprawny
+    public class DCL3_Poprawny
     {
         private static volatile Data _instance;
         private static readonly object _lock = new object();
@@ -83,8 +83,8 @@ namespace DclTest
         }
     }
 
-    //4: Wymuszony Błąd (Symulacja słabego modelu pamięci / rearanżacji)
-    public class Singleton4_WymuszonyBlad
+    //4: Wymuszony Błąd
+    public class DCL4_WymuszonyBlad
     {
         private static Data _instance;
         private static readonly object _lock = new object();
@@ -102,8 +102,7 @@ namespace DclTest
 
                         Thread.SpinWait(50000);
 
-                        _instance.Lista = new List<int>();
-                        for (int i = 0; i < 1000; i++) _instance.Lista.Add(i);
+                        _instance = new Data();
                     }
                 }
             }
@@ -118,18 +117,17 @@ namespace DclTest
             Console.WriteLine("Start testów DCL...");
             long attempts = 10000;
 
-            // Definiujemy 9 wartości ze skokiem
-            int[] testowaneWatki = { 1, 2, 4, 8, 16, 24, 32, 64, 96 };
+            //int[] testowaneWatki = { 1, 2, 4, 8, 16, 24, 32, 64, 96 };
 
             Console.WriteLine(" TEST 1: Błędny DCL");
 
-            foreach (int watki in testowaneWatki)
+            for (int watki = 1; watki <= 32; watki++)
             {
                 bool error = false;
 
                 for (long i = 0; i < attempts; i++)
                 {
-                    Singleton1_Bledny.Reset();
+                    DCL1_Bledny.Reset();
                     Barrier barrier = new Barrier(watki);
                     Task[] tasks = new Task[watki];
 
@@ -138,7 +136,7 @@ namespace DclTest
                         tasks[t] = Task.Run(() =>
                         {
                             barrier.SignalAndWait();
-                            Data data = Singleton1_Bledny.GetInstance();
+                            Data data = DCL1_Bledny.GetInstance();
                             try
                             {
                                 if (data.Lista == null || data.Lista.Count < 1000) error = true;
@@ -150,11 +148,11 @@ namespace DclTest
                     if (error) break;
                 }
 
-                Singleton1_Bledny.GetInstance();
+                DCL1_Bledny.GetInstance();
                 var opcje = new ParallelOptions { MaxDegreeOfParallelism = watki };
-                Parallel.For(0, 1000000, opcje, i => Singleton1_Bledny.GetInstance());
+                Parallel.For(0, 1000000, opcje, i => DCL1_Bledny.GetInstance());
                 var sw = Stopwatch.StartNew();
-                Parallel.For(0, 10000000, opcje, i => Singleton1_Bledny.GetInstance());
+                Parallel.For(0, 10000000, opcje, i => DCL1_Bledny.GetInstance());
                 sw.Stop();
 
                 string status = error ? "BŁĄD!" : "Brak błędu";
@@ -163,13 +161,13 @@ namespace DclTest
 
             Console.WriteLine(" TEST 2: Tylko Lock");
 
-            foreach (int watki in testowaneWatki)
+            for (int watki = 1; watki <= 32; watki++)
             {
                 bool error = false;
 
                 for (long i = 0; i < attempts; i++)
                 {
-                    Singleton2_Powolny.Reset();
+                    DCL2_Powolny.Reset();
                     Barrier barrier = new Barrier(watki);
                     Task[] tasks = new Task[watki];
 
@@ -178,7 +176,7 @@ namespace DclTest
                         tasks[t] = Task.Run(() =>
                         {
                             barrier.SignalAndWait();
-                            Data data = Singleton2_Powolny.GetInstance();
+                            Data data = DCL2_Powolny.GetInstance();
                             try
                             {
                                 if (data.Lista == null || data.Lista.Count < 1000) error = true;
@@ -190,11 +188,11 @@ namespace DclTest
                     if (error) break;
                 }
 
-                Singleton2_Powolny.GetInstance();
+                DCL2_Powolny.GetInstance();
                 var opcje = new ParallelOptions { MaxDegreeOfParallelism = watki };
-                Parallel.For(0, 1000000, opcje, i => Singleton2_Powolny.GetInstance());
+                Parallel.For(0, 1000000, opcje, i => DCL2_Powolny.GetInstance());
                 var sw = Stopwatch.StartNew();
-                Parallel.For(0, 10000000, opcje, i => Singleton2_Powolny.GetInstance());
+                Parallel.For(0, 10000000, opcje, i => DCL2_Powolny.GetInstance());
                 sw.Stop();
 
                 string status = error ? "BŁĄD!" : "Brak błędu";
@@ -203,13 +201,13 @@ namespace DclTest
 
             Console.WriteLine(" TEST 3: Z volatile");
 
-            foreach (int watki in testowaneWatki)
+            for (int watki = 1; watki <= 32; watki++)
             {
                 bool error = false;
 
                 for (long i = 0; i < attempts; i++)
                 {
-                    Singleton3_Poprawny.Reset();
+                    DCL3_Poprawny.Reset();
                     Barrier barrier = new Barrier(watki);
                     Task[] tasks = new Task[watki];
 
@@ -218,7 +216,7 @@ namespace DclTest
                         tasks[t] = Task.Run(() =>
                         {
                             barrier.SignalAndWait();
-                            Data data = Singleton3_Poprawny.GetInstance();
+                            Data data = DCL3_Poprawny.GetInstance();
                             try
                             {
                                 if (data.Lista == null || data.Lista.Count < 1000) error = true;
@@ -230,11 +228,11 @@ namespace DclTest
                     if (error) break;
                 }
 
-                Singleton3_Poprawny.GetInstance();
+                DCL3_Poprawny.GetInstance();
                 var opcje = new ParallelOptions { MaxDegreeOfParallelism = watki };
-                Parallel.For(0, 1000000, opcje, i => Singleton3_Poprawny.GetInstance());
+                Parallel.For(0, 1000000, opcje, i => DCL3_Poprawny.GetInstance());
                 var sw = Stopwatch.StartNew();
-                Parallel.For(0, 10000000, opcje, i => Singleton3_Poprawny.GetInstance());
+                Parallel.For(0, 10000000, opcje, i => DCL3_Poprawny.GetInstance());
                 sw.Stop();
 
                 string status = error ? "BŁĄD!" : "Brak błędu";
@@ -243,13 +241,13 @@ namespace DclTest
 
             Console.WriteLine(" TEST 4: Wymuszony Błąd Rearanżacji Instrukcji");
 
-            foreach (int watki in testowaneWatki)
+            for (int watki = 1; watki <= 32; watki++)
             {
                 bool error = false;
 
                 for (long i = 0; i < attempts; i++)
                 {
-                    Singleton4_WymuszonyBlad.Reset();
+                    DCL4_WymuszonyBlad.Reset();
                     Barrier barrier = new Barrier(watki);
                     Task[] tasks = new Task[watki];
 
@@ -258,7 +256,7 @@ namespace DclTest
                         tasks[t] = Task.Run(() =>
                         {
                             barrier.SignalAndWait();
-                            Data data = Singleton4_WymuszonyBlad.GetInstance();
+                            Data data = DCL4_WymuszonyBlad.GetInstance();
                             try
                             {
                                 if (data.Lista == null || data.Lista.Count < 1000) error = true;
@@ -270,13 +268,13 @@ namespace DclTest
                     if (error) break;
                 }
 
-                Singleton4_WymuszonyBlad.GetInstance();
+                DCL4_WymuszonyBlad.GetInstance();
                 var opcje = new ParallelOptions { MaxDegreeOfParallelism = watki };
 
-                Parallel.For(0, 1000000, opcje, i => Singleton4_WymuszonyBlad.GetInstance());
+                Parallel.For(0, 1000000, opcje, i => DCL4_WymuszonyBlad.GetInstance());
 
                 var sw = Stopwatch.StartNew();
-                Parallel.For(0, 10000000, opcje, i => Singleton4_WymuszonyBlad.GetInstance());
+                Parallel.For(0, 10000000, opcje, i => DCL4_WymuszonyBlad.GetInstance());
                 sw.Stop();
 
                 string status = error ? "BŁĄD!" : "OK";
