@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoubleCheckLocking")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ab40e4b93710a1f11d38dfa36575d24fe12a8c9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70c1aa42aac3ea4014c9122233e21fb72bc79333")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoubleCheckLocking")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoubleCheckLocking")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

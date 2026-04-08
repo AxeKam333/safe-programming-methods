@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "xIvl8wGe+cc=",
+  "dgSpecHash": "VP+ceGno55U=",
   "success": true,
   "projectFilePath": "C:\\Users\\olekk\\Desktop\\programming_studies\\i-sem-mgr\\safe-programming-methods\\p2_double_check\\DoubleCheckLocking\\DoubleCheckLocking\\DoubleCheckLocking.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\olekk\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.25\\microsoft.net.illink.tasks.8.0.25.nupkg.sha512",
-    "C:\\Users\\olekk\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\8.0.25\\microsoft.netcore.app.runtime.linux-x64.8.0.25.nupkg.sha512",
-    "C:\\Users\\olekk\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\8.0.25\\microsoft.aspnetcore.app.runtime.linux-x64.8.0.25.nupkg.sha512",
-    "C:\\Users\\olekk\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\8.0.25\\microsoft.netcore.app.host.linux-x64.8.0.25.nupkg.sha512"
+    "C:\\Users\\olekk\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-arm64\\8.0.25\\microsoft.netcore.app.runtime.linux-arm64.8.0.25.nupkg.sha512",
+    "C:\\Users\\olekk\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-arm64\\8.0.25\\microsoft.aspnetcore.app.runtime.linux-arm64.8.0.25.nupkg.sha512",
+    "C:\\Users\\olekk\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm64\\8.0.25\\microsoft.netcore.app.host.linux-arm64.8.0.25.nupkg.sha512"
   ],
   "logs": []
 }
