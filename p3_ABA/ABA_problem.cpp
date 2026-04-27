@@ -1,14 +1,13 @@
 #include <iostream>
-#include <fstream>
 #include <atomic>
 #include <thread>
 #include <vector>
 #include <mutex>
 #include <chrono>
 #include <string>
-
+#include <barrier>
 using namespace std;
-bool ENABLE_LOGS = true;
+
 
 struct Node {
     string id;
@@ -16,7 +15,7 @@ struct Node {
     Node(string identifier) : id(identifier), next(nullptr) {}
 };
 
-ofstream log_file;
+bool ENABLE_LOGS = true;
 
 void log_state(const string& thread_name, const string& action, Node* top) {
     if (!ENABLE_LOGS) return;
@@ -32,7 +31,6 @@ void log_state(const string& thread_name, const string& action, Node* top) {
     msg += "null\n";
     
     cout << msg;
-    if (log_file.is_open()) log_file << msg;
 }
 
 // 1. MUTEX
@@ -233,16 +231,22 @@ void run_benchmark(string name, int num_threads) {
     int ops = 200000; 
 
     for(int i = 0; i < num_threads * 2; i++) stack.push(new Node("X"));
-
-    auto start = chrono::high_resolution_clock::now();
+ 
+    barrier sync_barrier(num_threads + 1);
+    
     for (int i = 0; i < num_threads; ++i) {
         threads.emplace_back([&, i]() {
+            sync_barrier.arrive_and_wait();
             for (int j = 0; j < ops; ++j) {
                 stack.push(new Node("X"));
                 stack.pop();
             }
         });
     }
+
+    sync_barrier.arrive_and_wait();
+    auto start = chrono::high_resolution_clock::now();
+
     for (auto& t : threads) t.join();
     auto end = chrono::high_resolution_clock::now();
     
@@ -251,15 +255,12 @@ void run_benchmark(string name, int num_threads) {
     cout << "Watki: " << num_threads << " | " << name << " -> " << mops << " MOPS\n";
 }
 
-int main() {
-    log_file.open("wyniki_aba.txt");
-    
+int main() {    
     test_mutex();
     test_naive_cas();
     test_tagged_cas();
     
-    if (log_file.is_open()) log_file.close();
-    ENABLE_LOGS = false; // WYŁĄCZENIE LOGÓW PRZED BENCHMARKIEM
+    ENABLE_LOGS = false;
 
     cout << "\nPRZEPUSTOWOSC (MOPS)\n";
     vector<int> t_counts = {1, 2, 4, 8};
