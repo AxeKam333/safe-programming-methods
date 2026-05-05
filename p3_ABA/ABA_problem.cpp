@@ -8,12 +8,18 @@
 #include <barrier>
 using namespace std;
 
-
 struct Node {
     string id;
     Node* next;
     Node(string identifier) : id(identifier), next(nullptr) {}
 };
+
+void dummy_work(int cycles) {
+    volatile int sum = 0;
+    for (int i = 0; i < cycles; ++i) {
+        sum += i;
+    }
+}
 
 bool ENABLE_LOGS = true;
 
@@ -255,6 +261,51 @@ void run_benchmark(string name, int num_threads) {
     cout << "Watki: " << num_threads << " | " << name << " -> " << mops << " MOPS\n";
 }
 
+template<typename StackType>
+void run_realistic_benchmark(string name, int num_threads) {
+    StackType stack;
+    vector<thread> threads;
+    
+    int ops = 20000; 
+    int work_cycles = 500;
+
+    for(int i = 0; i < num_threads * 2; ++i) stack.push(new Node("X"));
+
+    std::barrier sync_barrier(num_threads + 1);
+
+    auto start_time = chrono::high_resolution_clock::now(); 
+
+    for (int i = 0; i < num_threads; ++i) {
+        threads.emplace_back([&, i]() {
+            Node* local_node = new Node("W"); 
+            
+            sync_barrier.arrive_and_wait();
+
+            for (int j = 0; j < ops; ++j) {
+                stack.push(local_node);
+                
+                dummy_work(work_cycles); 
+                
+                local_node = stack.pop();
+                
+                dummy_work(work_cycles); 
+            }
+        });
+    }
+
+    sync_barrier.arrive_and_wait();
+    
+    start_time = chrono::high_resolution_clock::now(); 
+
+    for (auto& t : threads) t.join();
+    auto end_time = chrono::high_resolution_clock::now();
+
+    chrono::duration<double> diff = end_time - start_time;
+    double mops = (num_threads * ops * 2.0) / 1000000.0 / diff.count();
+    
+    cout << "Watki: " << num_threads << " | " << name << " -> " << mops << " MOPS\n";
+}
+
 int main() {    
     test_mutex();
     test_naive_cas();
@@ -263,7 +314,7 @@ int main() {
     ENABLE_LOGS = false;
 
     cout << "\nPRZEPUSTOWOSC (MOPS)\n";
-    vector<int> t_counts = {1, 2, 4, 8};
+    vector<int> t_counts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     
     cout << "\nMutex\n";
     for(int t : t_counts) run_benchmark<MutexStack>("MutexStack", t);
@@ -273,6 +324,21 @@ int main() {
 
     cout << "\nTagged CAS\n";
     for(int t : t_counts) run_benchmark<TaggedStack>("TaggedStack", t);
+
+    cout << "\nBenchmark z dodatkową pracą, rozłożenie zatoru\n";
+    cout << "Kazda operacja PUSH/POP jest przeplatana obliczeniami na rdzeniu.\n\n";
+    
+    vector<int> real_t_counts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; 
+    
+    cout << "Mutex:\n";
+    for(int t : real_t_counts) run_realistic_benchmark<MutexStack>("MutexStack", t);
+    
+    cout << "\nCAS:\n";
+    for(int t : real_t_counts) run_realistic_benchmark<NaiveStack>("TaggedStack", t);
+    
+    cout << "\nTagged CAS (Bezpieczny Lock-Free):\n";
+    for(int t : real_t_counts) run_realistic_benchmark<TaggedStack>("TaggedStack", t);
+
 
     return 0;
 }
