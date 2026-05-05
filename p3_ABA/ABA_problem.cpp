@@ -162,24 +162,40 @@ public:
 void test_mutex() {
     cout << "\nTEST 1: MUTEX\n";
     MutexStack stack;
-    stack.push(new Node("C")); stack.push(new Node("A"));
+    stack.push(new Node("C")); 
+    stack.push(new Node("A"));
     Node* node_B = new Node("B");
 
     log_state("SYS", "Stan startowy", stack.get_top());
 
-    thread t1([&]() { stack.pop(true); });
+    thread t1([&]() { 
+        Node* popped = stack.pop(true); 
+        if (popped) {
+            log_state("T1", "Zakończono POP. Usunięto węzeł: [" + popped->id + "]", stack.get_top());
+        }
+    });
+    
     this_thread::sleep_for(chrono::milliseconds(20)); 
     
     thread t2([&]() {
         log_state("T2", "Oczekuje na Mutex...", stack.get_top());
-        Node* a = stack.pop(); 
-        log_state("T2", "Mutex zwolniony. POP(A) OK.", stack.get_top());
-        stack.push(node_B);
-        stack.push(a);
+        
+        Node* popped = stack.pop(); 
+        
+        if (popped) {
+            log_state("T2", "Mutex zwolniony. POP pobrał: [" + popped->id + "]", stack.get_top());
+            
+            stack.push(node_B);
+            stack.push(popped);
+            log_state("T2", "Zakończono odkładanie.", stack.get_top());
+        } else {
+            log_state("T2", "Stos był pusty!", stack.get_top());
+        }
     });
 
-    t1.join(); t2.join();
-    log_state("SYS", "Spojnosc zachowana", stack.get_top());
+    t1.join(); 
+    t2.join();
+    log_state("SYS", "Stan końcowy (Sekwencyjna spójność)", stack.get_top());
 }
 
 void test_naive_cas() {
@@ -295,6 +311,9 @@ void run_realistic_benchmark(string name, int num_threads) {
 }
 
 int main() {    
+
+    run_realistic_benchmark<MutexStack>("MutexStack", 10);
+
     test_mutex();
     test_naive_cas();
     test_tagged_cas();
@@ -312,7 +331,6 @@ int main() {
     
     cout << "\nTagged CAS (Bezpieczny Lock-Free):\n";
     for(int t : real_t_counts) run_realistic_benchmark<TaggedStack>("TaggedStack", t);
-
 
     return 0;
 }
