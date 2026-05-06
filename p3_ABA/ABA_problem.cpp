@@ -330,7 +330,7 @@ int main() {
     for(int t : real_t_counts) run_realistic_benchmark<MutexStack>("MutexStack", t);
     
     cout << "\nCAS:\n";
-    for(int t : real_t_counts) run_realistic_benchmark<NaiveStack>("TaggedStack", t);
+    for(int t : real_t_counts) run_realistic_benchmark<NaiveStack>("NaiveStack", t);
     
     cout << "\nTagged CAS (Bezpieczny Lock-Free):\n";
     for(int t : real_t_counts) run_realistic_benchmark<TaggedStack>("TaggedStack", t);
