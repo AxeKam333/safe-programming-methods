@@ -1,4 +1,4 @@
-//compilation: g++ -std=c++20 -lpthread -O2 -latomic -mcx16 ./ABA_problem.cpp -o ./ABA_problem 
+//compilation: g++ -std=c++20 -lpthread -O0 -latomic -mcx16 ./ABA_problem.cpp -o ./ABA_problem 
 //usage: ./ABA_problem
 
 #include <iostream>
@@ -324,7 +324,8 @@ int main() {
     ENABLE_LOGS = false;
 
     cout << "\nPRZEPUSTOWOSC (MOPS)\n";
-    vector<int> real_t_counts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; 
+    vector<int> real_t_counts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}; 
+    //vector<int> real_t_counts = {1, 2, 4, 8, 16, 24, 32, 48, 64, 80, 96}; 
     
     cout << "Mutex:\n";
     for(int t : real_t_counts) run_realistic_benchmark<MutexStack>("MutexStack", t);
