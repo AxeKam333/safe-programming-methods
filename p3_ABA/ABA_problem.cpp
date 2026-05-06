@@ -254,7 +254,7 @@ void run_realistic_benchmark(string name, int num_threads) {
     StackType stack;
     vector<thread> threads;
     
-    int ops = 20000; 
+    int ops = 200000; 
     int work_cycles = 500;
 
     for(int i = 0; i < num_threads * ops; ++i) {
