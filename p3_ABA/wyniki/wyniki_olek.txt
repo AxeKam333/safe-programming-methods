@@ -1,0 +1,98 @@
+Watki: 10 | MutexStack -> 2.02452 MOPS
+
+TEST 1: MUTEX
+[SYS] Stan startowy | Stos: [A]->[C]->null
+[T1] Blokada uzyskana. Wywlaszczenie OS. | Stos: [A]->[C]->null
+[T2] Oczekuje na Mutex... | Stos: [A]->[C]->null
+[T1] Wznowienie. POP zakonczony. | Stos: [A]->[C]->null
+[T1] Zakończono POP. Usunięto węzeł: [A] | Stos: [C]->null
+[T2] Mutex zwolniony. POP pobrał: [C] | Stos: null
+[T2] Zakończono odkładanie. | Stos: [C]->[B]->null
+[SYS] Stan końcowy (Sekwencyjna spójność) | Stos: [C]->[B]->null
+
+TEST 2: NAIWNY CAS
+[SYS] PUSH [A] CAS OK. | Stos: [A]->[C]->null
+[SYS] Stan startowy | Stos: [A]->[C]->null
+[T1] Odczyt Top=[A]. Wywlaszczenie. | Stos: [A]->[C]->null
+[T2] Start sekwencji ABA. | Stos: [A]->[C]->null
+[T2] POP [A] CAS OK. | Stos: [C]->null
+[T2] PUSH [B] CAS OK. | Stos: [B]->[C]->null
+[T2] PUSH [A] CAS OK. | Stos: [A]->[B]->[C]->null
+[T2] Koniec sekwencji ABA. | Stos: [A]->[B]->[C]->null
+[T1] Wznowienie. Wykonuje stary CAS. | Stos: [A]->[B]->[C]->null
+[T1] POP [A] CAS OK. | Stos: [C]->null
+[SYS] Utrata wezla B | Stos: [C]->null
+
+TEST 3: TAGGED CAS
+[SYS] Stan startowy | Stos: [A]->[C]->null
+[T1] Odczyt Tag=2. Wywlaszczenie. | Stos: [A]->[C]->null
+[T2] Start sekwencji ABA. | Stos: [A]->[C]->null
+[T1] CAS BLAD (Zly Tag). ABA zablokowane. Retry. | Stos: [A]->[B]->[C]->null
+[SYS] Wynik: B ocalone | Stos: [B]->[C]->null
+
+PRZEPUSTOWOSC (MOPS)
+Mutex:
+Watki: 1 | MutexStack -> 3.07824 MOPS
+Watki: 2 | MutexStack -> 8.00162 MOPS
+Watki: 3 | MutexStack -> 10.7297 MOPS
+Watki: 4 | MutexStack -> 12.4584 MOPS
+Watki: 5 | MutexStack -> 8.86312 MOPS
+Watki: 6 | MutexStack -> 5.39071 MOPS
+Watki: 7 | MutexStack -> 4.97242 MOPS
+Watki: 8 | MutexStack -> 3.84716 MOPS
+Watki: 9 | MutexStack -> 3.59966 MOPS
+Watki: 10 | MutexStack -> 2.99209 MOPS
+Watki: 11 | MutexStack -> 2.92585 MOPS
+Watki: 12 | MutexStack -> 2.95159 MOPS
+Watki: 13 | MutexStack -> 2.9211 MOPS
+Watki: 14 | MutexStack -> 2.95648 MOPS
+Watki: 15 | MutexStack -> 2.94891 MOPS
+Watki: 16 | MutexStack -> 2.98677 MOPS
+Watki: 17 | MutexStack -> 2.98501 MOPS
+Watki: 18 | MutexStack -> 3.00061 MOPS
+Watki: 19 | MutexStack -> 3.02772 MOPS
+Watki: 20 | MutexStack -> 3.03441 MOPS
+
+CAS:
+Watki: 1 | NaiveStack -> 2.21376 MOPS
+Watki: 2 | NaiveStack -> 3.4976 MOPS
+Watki: 3 | NaiveStack -> 5.92316 MOPS
+Watki: 4 | NaiveStack -> 7.13461 MOPS
+Watki: 5 | NaiveStack -> 5.07371 MOPS
+Watki: 6 | NaiveStack -> 5.3683 MOPS
+Watki: 7 | NaiveStack -> 5.0513 MOPS
+Watki: 8 | NaiveStack -> 4.91158 MOPS
+Watki: 9 | NaiveStack -> 4.32175 MOPS
+Watki: 10 | NaiveStack -> 4.16258 MOPS
+Watki: 11 | NaiveStack -> 4.04873 MOPS
+Watki: 12 | NaiveStack -> 4.14632 MOPS
+Watki: 13 | NaiveStack -> 4.1974 MOPS
+Watki: 14 | NaiveStack -> 4.17089 MOPS
+Watki: 15 | NaiveStack -> 4.20316 MOPS
+Watki: 16 | NaiveStack -> 4.04804 MOPS
+Watki: 17 | NaiveStack -> 3.98569 MOPS
+Watki: 18 | NaiveStack -> 3.91408 MOPS
+Watki: 19 | NaiveStack -> 3.88709 MOPS
+Watki: 20 | NaiveStack -> 3.84612 MOPS
+
+Tagged CAS (Bezpieczny Lock-Free):
+Watki: 1 | TaggedStack -> 4.10951 MOPS
+Watki: 2 | TaggedStack -> 7.60336 MOPS
+Watki: 3 | TaggedStack -> 10.7855 MOPS
+Watki: 4 | TaggedStack -> 9.88513 MOPS
+Watki: 5 | TaggedStack -> 6.39114 MOPS
+Watki: 6 | TaggedStack -> 5.71764 MOPS
+Watki: 7 | TaggedStack -> 5.34538 MOPS
+Watki: 8 | TaggedStack -> 4.51835 MOPS
+Watki: 9 | TaggedStack -> 4.08751 MOPS
+Watki: 10 | TaggedStack -> 3.58142 MOPS
+Watki: 11 | TaggedStack -> 3.56553 MOPS
+Watki: 12 | TaggedStack -> 3.54138 MOPS
+Watki: 13 | TaggedStack -> 3.69029 MOPS
+Watki: 14 | TaggedStack -> 3.75552 MOPS
+Watki: 15 | TaggedStack -> 3.42557 MOPS
+Watki: 16 | TaggedStack -> 3.37837 MOPS
+Watki: 17 | TaggedStack -> 3.23653 MOPS
+Watki: 18 | TaggedStack -> 3.33825 MOPS
+Watki: 19 | TaggedStack -> 3.10815 MOPS
+Watki: 20 | TaggedStack -> 3.22186 MOPS
