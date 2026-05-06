@@ -1,3 +1,6 @@
+//compilation: g++ -std=c++20 -lpthread -O2 -latomic -mcx16 ./ABA_problem.cpp -o ./ABA_problem 
+//usage: ./ABA_problem
+
 #include <iostream>
 #include <atomic>
 #include <thread>
