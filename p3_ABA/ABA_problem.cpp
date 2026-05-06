@@ -1,4 +1,4 @@
-//compilation: g++ -std=c++20 -lpthread -O0 -latomic -mcx16 ./ABA_problem.cpp -o ./ABA_problem 
+//compilation: g++ -std=c++20 -O0 -mcx16 ./ABA_problem.cpp -o ./ABA_problem -lpthread -latomic
 //usage: ./ABA_problem
 
 #include <iostream>
